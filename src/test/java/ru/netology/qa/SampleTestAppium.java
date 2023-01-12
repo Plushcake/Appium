@@ -11,6 +11,7 @@ import ru.netology.qa.screens.MainScreenAppium;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class SampleTestAppium {
 
     private AndroidDriver driver;
@@ -45,24 +46,25 @@ public class SampleTestAppium {
     }
 
     @Test
-    public void filledString() {
+    public void filledString() throws InterruptedException {
         mainScreenAppium.userInput.isDisplayed();
         mainScreenAppium.userInput.click();
         mainScreenAppium.userInput.sendKeys("Hello World");
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
+        Thread.sleep(3000);
         Assertions.assertEquals("Hello World", mainScreenAppium.textChangedResult.getText());
     }
 
     @Test
-    public void openTextInActivity() {
+    public void openTextInActivity() throws InterruptedException {
         mainScreenAppium.userInput.isDisplayed();
         mainScreenAppium.userInput.click();
         mainScreenAppium.userInput.sendKeys("Hello");
         mainScreenAppium.openTextInActivity.isDisplayed();
         mainScreenAppium.openTextInActivity.click();
+        Thread.sleep(3000);
         Assertions.assertEquals("Hello", mainScreenAppium.expectedText.getText());
-
     }
 
     @AfterEach
