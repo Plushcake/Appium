@@ -39,32 +39,47 @@ public class SampleTestAppium {
 
 
     @Test
-    public void emptyStringTest() {
+    public void emptyStringTest() throws InterruptedException {
+        mainScreenAppium.userInput.isDisplayed();
+        mainScreenAppium.userInput.click();
+        mainScreenAppium.userInput.sendKeys("Воспроизвел сценарий.");
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
-        Assertions.assertEquals("Hello UiAutomator!", mainScreenAppium.textChangedResult.getText());
+        Thread.sleep(2000);
+        mainScreenAppium.userInput.isDisplayed();
+        mainScreenAppium.userInput.click();
+        mainScreenAppium.userInput.clear();
+        Thread.sleep(2000);
+        mainScreenAppium.buttonChange.isDisplayed();
+        mainScreenAppium.buttonChange.click();
+        mainScreenAppium.textChangedResult.isDisplayed();
+        Thread.sleep(3000);
+        Assertions.assertEquals("Воспроизвел сценарий.", mainScreenAppium.textChangedResult.getText());
+
     }
 
     @Test
     public void filledString() throws InterruptedException {
         mainScreenAppium.userInput.isDisplayed();
         mainScreenAppium.userInput.click();
-        mainScreenAppium.userInput.sendKeys("Hello World");
+        mainScreenAppium.userInput.sendKeys("Hello");
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
         Thread.sleep(3000);
-        Assertions.assertEquals("Hello World", mainScreenAppium.textChangedResult.getText());
+        Assertions.assertEquals("Hello", mainScreenAppium.textChangedResult.getText());
     }
 
     @Test
     public void openTextInActivity() throws InterruptedException {
         mainScreenAppium.userInput.isDisplayed();
         mainScreenAppium.userInput.click();
-        mainScreenAppium.userInput.sendKeys("Hello");
+        mainScreenAppium.userInput.sendKeys("Hello World");
         mainScreenAppium.openTextInActivity.isDisplayed();
         mainScreenAppium.openTextInActivity.click();
         Thread.sleep(3000);
-        Assertions.assertEquals("Hello", mainScreenAppium.expectedText.getText());
+        Assertions.assertEquals("Hello World", mainScreenAppium.expectedText.getText());
+        driver.navigate().back();
+        Thread.sleep(2000);
     }
 
     @AfterEach
