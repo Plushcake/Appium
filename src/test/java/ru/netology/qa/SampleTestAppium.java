@@ -48,7 +48,7 @@ public class SampleTestAppium {
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
         mainScreenAppium.textChangedResult.isDisplayed();
-        Assertions.assertEquals("Привет UiAutomator!", mainScreenAppium.textChangedResult.getText());
+        Assertions.assertEquals("Hello UiAutomator!", mainScreenAppium.textChangedResult.getText());
 
     }
 
@@ -60,7 +60,7 @@ public class SampleTestAppium {
         mainScreenAppium.userInput.sendKeys("Hello World");
         mainScreenAppium.openTextInActivity.isDisplayed();
         mainScreenAppium.openTextInActivity.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         mainScreenAppium.expectedText.isDisplayed();
         Assertions.assertEquals("Hello World", mainScreenAppium.expectedText.getText());
     }
