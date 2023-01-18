@@ -42,13 +42,11 @@ public class SampleTestAppium {
     @Test
     @Order(1)
     public void testToTryToSetAnEmptyString() {
-        mainScreenAppium.userInput.isDisplayed();
-        mainScreenAppium.userInput.click();
-        mainScreenAppium.userInput.sendKeys(" ");
+        String textToBeChanged = mainScreenAppium.textChangedResult.getText();
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
         mainScreenAppium.textChangedResult.isDisplayed();
-        Assertions.assertEquals("Hello UiAutomator!", mainScreenAppium.textChangedResult.getText());
+        Assertions.assertEquals(textToBeChanged, mainScreenAppium.textChangedResult.getText());
 
     }
 
