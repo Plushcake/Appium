@@ -42,6 +42,9 @@ public class SampleTestAppium {
     @Test
     @Order(1)
     public void testToTryToSetAnEmptyString() {
+        mainScreenAppium.userInput.isDisplayed();
+        mainScreenAppium.userInput.click();
+        mainScreenAppium.userInput.sendKeys(" ");
         String textToBeChanged = mainScreenAppium.textChangedResult.getText();
         mainScreenAppium.buttonChange.isDisplayed();
         mainScreenAppium.buttonChange.click();
